@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="workoutVideo"
+            type="com.example.workoutapp.models.WorkoutVideo"
+            />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/video_list_constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <ImageButton
+            android:id="@+id/video_details_back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:paddingBottom="5dp"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24"
+            android:background="@color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:contentDescription="@string/back_button"
+            />
+
+        <TextView
+            android:id="@+id/video_details_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:paddingBottom="5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/class_details"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintTop_creator="1"
+            />
+
+        <com.google.android.youtube.player.YouTubeThumbnailView
+            android:id="@+id/workout_video_detail_image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="0dp"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:adjustViewBounds="true"
+            android:padding="0dp"
+            android:scaleType="fitXY"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/video_details_heading"
+            android:background="@drawable/fitness_class_example"
+            />
+
+        <TextView
+            android:id="@+id/workout_video_details_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="#000"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:text="@{workoutVideo.title}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/workout_video_detail_image"
+            tools:text="Video Title"
+            />
+
+        <TextView
+            android:id="@+id/workout_video_details_instructor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingLeft="15dp"
+            android:textSize="18sp"
+            android:text="@{workoutVideo.instructor}"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/workout_video_details_title"
+            tools:text="Instructor Name"
+            />
+
+        <TextView
+            android:id="@+id/workout_video_details_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="15dp"
+            android:paddingLeft="15dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:text="@{workoutVideo.level.value}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/workout_video_details_instructor"
+            tools:text="BEGINNER"
+            />
+
+        <View
+            android:id="@+id/workout_video_details_title_divider"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:paddingBottom="15dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/workout_video_details_level"
+            />
+
+        <TextView
+            android:id="@+id/video_details_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingLeft="15dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:text="@{ @string/rating(workoutVideo.rating) }"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/workout_video_details_title_divider"
+            tools:text="99%"
+            />
+
+        <ImageView
+            android:id="@+id/video_details_thumbs_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingLeft="5dp"
+            android:src="@drawable/ic_baseline_thumb_up_24"
+            app:layout_constraintLeft_toRightOf="@id/video_details_rating"
+            app:layout_constraintTop_toBottomOf="@id/workout_video_details_title_divider"
+            />
+
+        <TextView
+            android:id="@+id/video_details_difficulty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingLeft="35dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:text="@{ @string/difficulty(workoutVideo.difficulty) }"
+            app:layout_constraintLeft_toRightOf="@id/video_details_thumbs_up"
+            app:layout_constraintTop_toBottomOf="@id/workout_video_details_title_divider"
+            tools:text="8.5/10"
+            />
+
+        <TextView
+            android:id="@+id/video_details_number_of_ratings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:paddingTop="5dp"
+            android:paddingLeft="15dp"
+            android:paddingBottom="5dp"
+            android:text="@{ @string/number_of_ratings(workoutVideo.numberOfRatings) }"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/video_details_rating"
+            tools:text="33,000"
+            />
+
+        <TextView
+            android:id="@+id/video_details_difficulty_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="35dp"
+            android:text="Difficulty"
+            android:textSize="9sp"
+            app:layout_constraintLeft_toLeftOf="@id/video_details_difficulty"
+            app:layout_constraintRight_toRightOf="@id/video_details_difficulty"
+            app:layout_constraintTop_toBottomOf="@id/video_details_difficulty"
+            />
+
+        <View
+            android:id="@+id/workout_video_details_rating_divider"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/video_details_number_of_ratings"
+            />
+
+        <TextView
+            android:id="@+id/video_details_equipment_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/equipment_label"
+            android:paddingTop="15dp"
+            android:paddingLeft="15dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/workout_video_details_rating_divider"
+            app:layout_constraintLeft_toLeftOf="parent"
+            />
+
+        <View
+            android:id="@+id/workout_video_details_equipment_divider"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/video_details_equipment_label"
+            />
+
+        <TextView
+            android:id="@+id/video_details_equipment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingLeft="15dp"
+            android:textSize="16sp"
+            android:text="@{workoutVideo.workoutEquipment.value}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/workout_video_details_equipment_divider"
+            tools:text="Treadmill"
+            />
+
+        <ImageView
+            android:id="@+id/video_details_equipment_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingLeft="5dp"
+            android:src="@{workoutVideo.workoutEquipment.icon}"
+            app:layout_constraintLeft_toRightOf="@id/video_details_equipment"
+            app:layout_constraintTop_toBottomOf="@id/workout_video_details_equipment_divider"
+            />
+
+        <TextView
+            android:id="@+id/video_details_description_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/description_label"
+            android:paddingTop="15dp"
+            android:paddingLeft="15dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/video_details_equipment"
+            />
+
+        <View
+            android:id="@+id/workout_video_details_description_divider"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/video_details_description_label"
+            />
+
+        <TextView
+            android:id="@+id/video_details_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="@{workoutVideo.description}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/workout_video_details_description_divider"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/video_details_play_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:text="PLAY"
+            android:textAlignment="center"
+            android:textColor="#FFF"
+            android:textColorHighlight="@color/white"
+            android:textColorLink="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:backgroundTint="#F44336"
+            app:iconTint="#F44336"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

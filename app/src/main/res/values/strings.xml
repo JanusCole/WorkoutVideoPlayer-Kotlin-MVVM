@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">WorkoutApp</string>
+    <string name="classes_fragment_heading">Classes</string>
+    <string name="programs_fragment_heading">Programs</string>
+    <string name="collections_fragment_heading">Collections</string>
+    <string name="class_details">CLASS DETAILS</string>
+    <string name="equipment_label">EQUIPMENT</string>
+    <string name="description_label">DESCRIPTION</string>
+    <string name="youtube_api_key_warning">You need to get an API Key from Youtube and set it as your YOUTUBE_API_KEY environment variable</string>
+    <string name="back_button">Back Button</string>
+    <string name="rating">%d%%</string>
+    <string name="number_of_ratings">%,d Ratings</string>
+    <string name="difficulty">%.1f/10</string>
+</resources>
