@@ -22,6 +22,9 @@ class VideoDetailsActivity : AppCompatActivity() {
         setContentView(binding.root)
         workoutVideoViewModel = ViewModelProvider(this).get(WorkoutVideoViewModel::class.java)
 
+        binding.workoutVideoViewModel = workoutVideoViewModel
+        binding.lifecycleOwner = this
+
         val workoutVideoId : String = getIntent().getStringExtra(VideoPlayerActivity.WORKOUT_VIDEO_ID)!!
 
         binding.videoDetailsBackButton.setOnClickListener(object : View.OnClickListener {
@@ -34,9 +37,6 @@ class VideoDetailsActivity : AppCompatActivity() {
             override fun onClick(v: View?) {
                 startVideoPlayerActivity(workoutVideoId)
             }
-        })
-        workoutVideoViewModel.getWorkoutVideo().observe(this, Observer {
-            binding.workoutVideo = it
         })
         workoutVideoViewModel.getVideo(workoutVideoId)
 

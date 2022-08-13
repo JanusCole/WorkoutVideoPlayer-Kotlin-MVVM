@@ -19,7 +19,7 @@ android {
 
     buildTypes {
         all {
-            buildConfigField ("String", "APIKEY", "\"${System.getenv("YOUTUBE_API_KEY")}\"")
+            buildConfigField ("String", "YOUTUBE_API_KEY", "\"${System.getenv("YOUTUBE_API_KEY")}\"")
             buildConfigField("String", 'BASE_URL', "\"https://raw.githubusercontent.com/Janus-Cole-Cantina/WorkoutVideoData/main/\"")
         }
         release {
