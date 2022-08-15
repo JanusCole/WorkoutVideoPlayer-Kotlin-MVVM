@@ -1,20 +1,20 @@
-package com.example.workoutapp
+package com.example.workoutapp.ui.groups
 
 import android.os.Bundle
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
 import com.example.workoutapp.ui.groups.SectionsPagerAdapter
-import com.example.workoutapp.databinding.ActivityMainBinding
+import com.example.workoutapp.databinding.ActivityVideoGroupsBinding
 
-class MainActivity : AppCompatActivity() {
+class VideoGroupsActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityVideoGroupsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityVideoGroupsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)

@@ -14,7 +14,8 @@
         android:theme="@style/Theme.WorkoutApp"
         >
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.groups.VideoGroupsActivity"
+            android:screenOrientation="portrait"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.WorkoutApp.NoActionBar"
@@ -27,6 +28,7 @@
         </activity>
         <activity
             android:name=".ui.videos.VideoListActivity"
+            android:screenOrientation="portrait"
             android:exported="true"
             android:label="VideoListActivity"
             android:theme="@style/Theme.WorkoutApp.NoActionBar"
@@ -34,6 +36,7 @@
         </activity>
         <activity
             android:name=".ui.videos.VideoDetailsActivity"
+            android:screenOrientation="portrait"
             android:exported="true"
             android:label="VideoDetailsActivity"
             android:theme="@style/Theme.WorkoutApp.NoActionBar"
